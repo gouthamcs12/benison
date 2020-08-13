@@ -1,0 +1,8 @@
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-container > button {
+  margin: 15px;;
+}

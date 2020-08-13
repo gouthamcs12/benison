@@ -1,0 +1,53 @@
+<div style="width: 420px;margin: 27px 0 0 37px;">
+  <div style="display: flex;
+  justify-content: space-between;">
+    <h1 style="color: #2FB528;" class="mat-headline">Welcome {{username}} </h1>
+    <h3 style="padding-top: 4px;color: #CD5B5B;">Employee Screen</h3>
+  </div>
+  <div style="display: flex;">
+    <a routerLink="/feedback" style="flex-basis: 30%;color: #CD5B5B;">New Feedback</a>
+    <a routerLink="/feedback-list" style="color: #CD5B5B;">List</a>
+  </div>
+  <form #feedbackForm="ngForm" (ngSubmit)="saveFeedBack()" novalidate>
+    <div>
+      <span style="width: 150px;
+      display: inline-block;">EmpName *:</span>
+      <mat-form-field appearance="outline">
+        <input type="text" required matInput name="empName" [(ngModel)]="feedback.employeeName">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <span style="width: 150px;
+      display: inline-block;">EmpId *:</span>
+      <mat-form-field appearance="outline">
+        <input type="text" required matInput name="empId" [(ngModel)]="feedback.employeeId">
+      </mat-form-field>
+    </div>
+    <div>
+      <span style="width: 150px;
+      display: inline-block;">Project *:</span>
+      <mat-form-field required appearance="outline">
+        <mat-select required name="pname" [(ngModel)]="feedback.projectName">
+          <mat-option *ngFor="let p of projects" [value]="p">
+            {{p}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <app-rating [feedback]="feedback"></app-rating>
+    </div>
+    <div>
+      <span style="width: 150px;
+      display: inline-block;">Comments :</span>
+      <mat-form-field appearance="outline">
+        <textarea matInput [(ngModel)]="feedback.comments" name="comments"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="btn-container">
+      <button mat-raised-button>Cancel</button>
+      <button type="submit" [disabled]="!feedbackForm.form.valid" mat-raised-button color="primary">Submit</button>
+    </div>
+  </form>
+</div>

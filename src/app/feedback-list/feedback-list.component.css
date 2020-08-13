@@ -1,0 +1,12 @@
+div > button {
+  margin: 10px;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-container > div {
+  margin: 10px;
+  flex-basis: 22%;
+}

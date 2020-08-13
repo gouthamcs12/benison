@@ -1,0 +1,30 @@
+<div style="display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 400px;">
+  <div style="width: 400px;">
+    <h1 style="color: #2FB528;" class="mat-headline">Welcome</h1>
+    <form #loginForm="ngForm" (ngSubmit)="authenticate(loginForm)" novalidate>
+      <div>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>User name</mat-label>
+          <input type="text" required matInput placeholder="User name" name="username" [(ngModel)]="username">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Password</mat-label>
+          <input required type="password" matInput name="password" [(ngModel)]="password">
+        </mat-form-field>
+      </div>
+      <div *ngIf="loginForm.submitted && showErrorMsg" class="alert alert-danger">
+        Please enter correct crendentials
+      </div>
+
+      <div>
+        <button type="submit" [disabled]="!loginForm.form.valid" mat-raised-button color="primary">Login</button>
+      </div>
+    </form>
+  </div>
+</div>

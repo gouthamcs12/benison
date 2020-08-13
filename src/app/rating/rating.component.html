@@ -1,0 +1,6 @@
+<div class="list-inline rating-list" *ngFor="let star of stars" style="display: inline-block">
+  <span (click)="countStar(star)" [ngClass]="{'selected': (star <= feedback.rating)}">
+    <mat-icon aria-hidden="false"
+      aria-label="Example memory icon">star_rate</mat-icon>
+  </span>
+</div>
